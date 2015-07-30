@@ -15,18 +15,20 @@ import java.sql.SQLException;
  */
 public class credentials {
 
-    public static Connection getConnection() throws ClassNotFoundException {
+    public static Connection getConnection() {
         Connection conn = null;
         try {
             Class.forName("com.mysql.jdbc.Driver");
+        } catch (ClassNotFoundException ex) {
+            System.err.println("Drivers not found!, " + ex.getMessage());
+        }
+        try {
             String jdbc = "jdbc:mysql://localhost/c0652964";
-            String userName = "root";
-            String pwd = "";
-            conn = DriverManager.getConnection(jdbc, userName, pwd);
-            String query = "SELECT * FROM users";
-
+            String username = "root";
+            String password = "";
+            conn = DriverManager.getConnection(jdbc, username, password);
         } catch (SQLException ex) {
-            System.err.println("Failed to Connect! " + ex.getMessage());
+            System.err.println("Failed to Connect!, " + ex.getMessage());
         }
         return conn;
     }

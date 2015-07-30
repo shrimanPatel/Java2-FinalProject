@@ -25,8 +25,8 @@ import javax.servlet.http.HttpSession;
  *
  * @author Shriman
  */
-@WebServlet(name = "login", urlPatterns = {"/login"})
-public class login extends HttpServlet {
+@WebServlet(name = "signup", urlPatterns = {"/signup"})
+public class signup extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -45,10 +45,10 @@ public class login extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet login</title>");
+            out.println("<title>Servlet signup</title>");
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet login at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet signup at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -66,7 +66,7 @@ public class login extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+//        processRequest(request, response);
     }
 
     /**
@@ -82,45 +82,47 @@ public class login extends HttpServlet {
             throws ServletException, IOException {
 //        processRequest(request, response);
 
+        Connection conn = null;
+        Statement stmt = null;
+
         PrintWriter out = response.getWriter();
 
         String username = request.getParameter("username");
-        String pwd = request.getParameter("pwd");
-        out.println(username);
-        out.println(pwd);
+        String password = request.getParameter("pwd");
+        String email = request.getParameter("email");
 
-        String user = "";
-        out.println("1st");
+        out.println(username);
+        out.println(password);
+        out.println(email);
+
         try {
-            out.println("2nd");
-            Connection conn = credentials.getConnection();
-            out.println("1st");
-            Statement stmt = conn.createStatement();
-            out.println("3rd");
-            String query = "SELECT * FROM users WHERE username = '" + username + "' AND pwd = '" + pwd + "'";
-            ResultSet rs = stmt.executeQuery(query);
+            conn = credentials.getConnection();
+            stmt = conn.createStatement();
+        } catch (SQLException ex) {
+            Logger.getLogger(signup.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        try {
+            stmt = conn.createStatement();
+            String query = "INSERT INTO users (username, pwd, email) "
+                    + "VALUES ('" + username + "', '" + password + "', '" + email + "')";
+            stmt.executeUpdate(query);
+
+            String querySelect = "SELECT * FROM users WHERE username = '" + username + "' AND pwd = '" + password + "'";
+            ResultSet rs = stmt.executeQuery(querySelect);
 
             while (rs.next()) {
-                user = rs.getString("username");
+                username = rs.getString("username");
             }
 
-            if (user != null) {
-                out.println("Login successful");
+            if (username != null) {
                 HttpSession success = request.getSession(true);
-                success.setAttribute("username", user);
-
-                response.sendRedirect("index.jsp");
-            } else {
-                out.println("Login unsuccessful");
-                HttpSession error = request.getSession(true);
-                error.setAttribute("error", "Either username or password is invalid");
-                out.println("Either username or password is invalid!");
+                success.setAttribute("username", username);
 
                 response.sendRedirect("jsp/login.jsp");
             }
-
         } catch (SQLException ex) {
-            Logger.getLogger(login.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(signup.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
