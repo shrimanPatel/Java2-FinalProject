@@ -23,9 +23,9 @@ public class credentials {
             System.err.println("Drivers not found!, " + ex.getMessage());
         }
         try {
-            String jdbc = "jdbc:mysql://localhost/c0652964";
-            String username = "root";
-            String password = "";
+            String jdbc = "jdbc:mysql://127.13.154.130:3306/moviedb";
+            String username = "adminmCBYGTb";
+            String password = "Fr24eiwAC2Vz";
             conn = DriverManager.getConnection(jdbc, username, password);
         } catch (SQLException ex) {
             System.err.println("Failed to Connect!, " + ex.getMessage());
