@@ -9,19 +9,18 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>MovieDB - Home</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
-
+        <h1>Movie DB</h1>
 
         <%
             if (session.getAttribute("username") == null) {
         %>
         <a href="jsp/login.jsp">Login / Sign up</a>
-        <%} else {
+        <% } else {
         %>
-        <h3>Hello, <%= session.getAttribute("username")%>!</h3>
+        <h3 style="color:Blue; text-align:right;">Hello, <%= session.getAttribute("username")%>!</h3>
         <a href="jsp/logout.jsp">logout</a>
         <%
             }
