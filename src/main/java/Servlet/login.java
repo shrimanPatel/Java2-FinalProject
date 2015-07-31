@@ -40,7 +40,8 @@ public class login extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
+        PrintWriter out = response.getWriter();
+        try {
             /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");
             out.println("<html>");
@@ -51,6 +52,8 @@ public class login extends HttpServlet {
             out.println("<h1>Servlet login at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
+        } finally {
+            out.close();
         }
     }
 
@@ -66,7 +69,7 @@ public class login extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+//        processRequest(request, response);
     }
 
     /**
@@ -83,21 +86,27 @@ public class login extends HttpServlet {
 //        processRequest(request, response);
 
         PrintWriter out = response.getWriter();
+        
+        String userName = request.getParameter("username");
+        String password = request.getParameter("pwd");
 
-        String username = request.getParameter("username");
-        String pwd = request.getParameter("pwd");
-        out.println(username);
-        out.println(pwd);
+        out.println(userName);
+        out.println(password);
 
         String user = "";
-        out.println("1st");
+
+        Connection conn = credentials.getConnection();
+        Statement stmt;
+        
+        if (conn != null) {
+            out.println("success");
+        } else {
+            out.println("fail!");
+        }
+
         try {
-            out.println("2nd");
-            Connection conn = credentials.getConnection();
-            out.println("1st");
-            Statement stmt = conn.createStatement();
-            out.println("3rd");
-            String query = "SELECT * FROM users WHERE username = '" + username + "' AND pwd = '" + pwd + "'";
+            stmt = conn.createStatement();
+            String query = "SELECT * FROM users WHERE username = '" + userName + "' AND pwd = '" + password + "'";
             ResultSet rs = stmt.executeQuery(query);
 
             while (rs.next()) {
@@ -116,7 +125,7 @@ public class login extends HttpServlet {
                 error.setAttribute("error", "Either username or password is invalid");
                 out.println("Either username or password is invalid!");
 
-                response.sendRedirect("jsp/login.jsp");
+                response.sendRedirect("login.jsp");
             }
 
         } catch (SQLException ex) {

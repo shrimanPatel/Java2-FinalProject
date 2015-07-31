@@ -82,9 +82,6 @@ public class signup extends HttpServlet {
             throws ServletException, IOException {
 //        processRequest(request, response);
 
-        Connection conn = null;
-        Statement stmt = null;
-
         PrintWriter out = response.getWriter();
 
         String username = request.getParameter("username");
@@ -95,11 +92,12 @@ public class signup extends HttpServlet {
         out.println(password);
         out.println(email);
 
+        Connection conn = credentials.getConnection();
+        Statement stmt = null;
         try {
-            conn = credentials.getConnection();
             stmt = conn.createStatement();
         } catch (SQLException ex) {
-            Logger.getLogger(signup.class.getName()).log(Level.SEVERE, null, ex);
+            out.println(ex.getMessage());
         }
 
         try {
@@ -119,7 +117,7 @@ public class signup extends HttpServlet {
                 HttpSession success = request.getSession(true);
                 success.setAttribute("username", username);
 
-                response.sendRedirect("jsp/login.jsp");
+                response.sendRedirect("index.jsp");
             }
         } catch (SQLException ex) {
             Logger.getLogger(signup.class.getName()).log(Level.SEVERE, null, ex);

@@ -14,6 +14,17 @@
     <body>
         <h1>Hello World!</h1>
 
+
+        <%
+            if (session.getAttribute("username") == null) {
+        %>
         <a href="jsp/login.jsp">Login / Sign up</a>
+        <%} else {
+        %>
+        <h3>Hello, <%= session.getAttribute("username")%>!</h3>
+        <a href="jsp/logout.jsp">logout</a>
+        <%
+            }
+        %>
     </body>
 </html>
