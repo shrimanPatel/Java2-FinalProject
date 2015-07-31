@@ -99,15 +99,28 @@ public class signup extends HttpServlet {
         } catch (SQLException ex) {
             out.println(ex.getMessage());
         }
-
+        String user = "";
         try {
+
             stmt = conn.createStatement();
-            String query = "INSERT INTO users (username, pwd, email) "
+
+            String query = "SELECT * FROM users WHERE username = '" + username + "'";
+            ResultSet rs = stmt.executeQuery(query);
+
+            while (rs.next()) {
+                out.println("user already exist! Try selecting other username.");
+                HttpSession success = request.getSession(true);
+                success.setAttribute("exist", "User already exist! Try selecting deifferent username!");
+
+                response.sendRedirect("jsp/login.jsp");
+            }
+
+            String queryInsert = "INSERT INTO users (username, pwd, email) "
                     + "VALUES ('" + username + "', '" + password + "', '" + email + "')";
-            stmt.executeUpdate(query);
+            stmt.executeUpdate(queryInsert);
 
             String querySelect = "SELECT * FROM users WHERE username = '" + username + "' AND pwd = '" + password + "'";
-            ResultSet rs = stmt.executeQuery(querySelect);
+            rs = stmt.executeQuery(querySelect);
 
             while (rs.next()) {
                 username = rs.getString("username");
@@ -119,6 +132,7 @@ public class signup extends HttpServlet {
 
                 response.sendRedirect("index.jsp");
             }
+
         } catch (SQLException ex) {
             Logger.getLogger(signup.class.getName()).log(Level.SEVERE, null, ex);
         }

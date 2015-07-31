@@ -78,9 +78,19 @@
                     <div class="submit">
                         <input class="bluebutton submitbotton" type="submit" value="Sign up" name="signup" />
                     </div>
-
+                    <div class="clear"> </div>
                 </div>
             </form>
+
+            <%
+                if (session.getAttribute("exist") != null) {
+            %>
+            <div class="formtitle" style="color:red; margin-top:5px;"><p> <%= session.getAttribute("error")%> </p></div>
+            <%
+                }
+            %>
+
+
         </div>
         <%
             if (session.getAttribute("error") == null) {
