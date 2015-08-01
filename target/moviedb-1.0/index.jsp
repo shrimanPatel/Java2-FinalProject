@@ -9,10 +9,18 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" type="text/css" href="css/style.css" />
+        <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.5/superhero/bootstrap.min.css" rel="stylesheet">
+
         <title>MovieDB - Home</title>
     </head>
     <body>
-        <h1>Movie DB</h1>
+
+        <div class="body"></div>
+        <div class="grad"></div>
+        <div class="header">
+            <div>movie<span>DB</span></div>
+        </div>
 
         <%
             if (session.getAttribute("username") == null) {

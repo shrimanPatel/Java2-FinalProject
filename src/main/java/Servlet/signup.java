@@ -110,7 +110,7 @@ public class signup extends HttpServlet {
             while (rs.next()) {
                 out.println("user already exist! Try selecting other username.");
                 HttpSession success = request.getSession(true);
-                success.setAttribute("exist", "User already exist! Try selecting deifferent username!");
+                success.setAttribute("exist", "User already exist! Try selecting different username!");
 
                 response.sendRedirect("jsp/login.jsp");
             }
