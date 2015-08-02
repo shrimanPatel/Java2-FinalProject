@@ -15,7 +15,6 @@ $(document).ready(function () {
                 } else {
                     $("#movieData").show();
                     $("#Poster").html("<img src=" + data.Poster + " alt='no img'>");
-                    $("#imdbID").html('<a href=http://www.imdb.com/title/' + data.imdbID + '>See on IMDb</a>');
                     $("#Plot").html("<p>" + data.Plot + " </p>");
                     $("#Actors").html("<p>" + data.Actors + "</p>");
                     $("#Awards").html("<p>" + data.Awards + "</p>");
@@ -26,6 +25,7 @@ $(document).ready(function () {
                     $("#Year").html("<p>" + data.Year + "</p>");
                     $("#imdbRating").html("<p>" + data.imdbRating + "</p>");
                     $("#imdbVotes").html("<p>" + data.imdbVotes + "</p>");
+                    $("#imdbID").html('<a href=http://www.imdb.com/title/' + data.imdbID + '>See on IMDb</a>');
                 }
             }
         });
