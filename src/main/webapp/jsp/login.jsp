@@ -15,8 +15,8 @@
         <link rel="stylesheet" type="text/css" href="../css/style.css" />
 
         <title>movieDB - Login</title>
-        <script src="js/login.js"></script>
-        <script src="js/prefixfree.min.js"></script>
+        <script src="../js/login.js"></script>
+        <script src="../js/prefixfree.min.js"></script>
         <script src='https://codepen.io/assets/libs/fullpage/jquery.js'></script>
     </head>
     <body>
