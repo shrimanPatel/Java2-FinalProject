@@ -60,6 +60,13 @@ body {
     margin: 0 auto;
 }
 
+#Poster{
+    margin-top: 1em;
+    float: left;
+    -webkit-box-shadow: 3px 3px 3px #7C7C7C;
+    -moz-box-shadow: 3px 3px 3px #7C7C7C;
+    box-shadow: 3px 3px 3px #7C7C7C;
+}
 /* member-login style */
 .member-login
 {
@@ -398,4 +405,7 @@ select {
         float: none;
         width: 100%;
     }
+}
+#allcomments{
+    display:none;
 }

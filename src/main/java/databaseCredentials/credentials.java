@@ -23,13 +23,13 @@ public class credentials {
             System.err.println("Drivers not found!, " + ex.getMessage());
         }
         try {
-//            String jdbc = "jdbc:mysql://127.0.0.1/c0652964";
-//            String username = "root";
-//            String password = "";
+            String jdbc = "jdbc:mysql://127.0.0.1/c0652964";
+            String username = "root";
+            String password = "";
 
-            String jdbc = "jdbc:mysql://127.13.154.130:3306/moviedb";
-            String username = "adminmCBYGTb";
-            String password = "Fr24eiwAC2Vz";
+//            String jdbc = "jdbc:mysql://127.13.154.130:3306/moviedb";
+//            String username = "adminmCBYGTb";
+//            String password = "Fr24eiwAC2Vz";
             
             conn = DriverManager.getConnection(jdbc, username, password);
         } catch (SQLException ex) {

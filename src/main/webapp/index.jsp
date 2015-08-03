@@ -11,7 +11,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" type="text/css" href="css/style.css" />
         <!--<link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.5/superhero/bootstrap.min.css" rel="stylesheet">-->
-        <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.5/paper/bootstrap.min.css" rel="stylesheet">
+        <!--<link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.5/paper/bootstrap.min.css" rel="stylesheet">-->
 
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
         <script src="js/movie.js"></script>
@@ -44,18 +44,21 @@
                 </pre>-->
         <div id="movieData">
             <div id="loading"><img src="images/loading.gif" /></div>
-            <div id="Poster" style="float:left;"></div>
-            <div id="Plot"></div>
+            <div id="Poster" style="float: left;"></div>
+            <div id="Plot"><label>Plot: </label></div>
             <div id="Actors"></div>
             <div id="Awards"></div>
             <div id="Director"></div>
             <div id="Genre"></div>
             <div id="Released"></div>
-            <div id="Title"></div>
+            <div id="Title" style="color: green;"></div>
             <div id="Year"></div>
             <div id="imdbRating"></div>
             <div id="imdbVotes"></div>
-            <div id="imdbID"></div>   
+            <div id="imdbID"></div>  
+            <div id="error"></div>
+            <div id="comment"></div>
         </div>
+        <div id="allcomments"></div>
     </body>
 </html>
