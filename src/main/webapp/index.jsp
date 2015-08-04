@@ -44,6 +44,7 @@
                 </pre>-->
         <div id="movieData">
             <div id="loading"><img src="images/loading.gif" /></div>
+            <div id="Title" style="color: green; font-size: 1.5em; font-weight: bold;"></div>
             <div id="Poster" style="float: left;"></div>
             <div id="Plot"><label>Plot: </label></div>
             <div id="Actors"></div>
@@ -51,7 +52,7 @@
             <div id="Director"></div>
             <div id="Genre"></div>
             <div id="Released"></div>
-            <div id="Title" style="color: green;"></div>
+            
             <div id="Year"></div>
             <div id="imdbRating"></div>
             <div id="imdbVotes"></div>
