@@ -12,7 +12,7 @@ $(document).ready(function () {
                 console.log(data);
                 if (data.Error === "Movie not found!")
                 {
-                    $("#error").html('No Movie found for this search! Make sure you spelled it right...');
+                    $("#error").html('No such movie found! Make sure you spelled it right!');
                     $("#loading").hide();
                 }
                 else
@@ -24,18 +24,18 @@ $(document).ready(function () {
                     } else {
                         $("#movieData").show();
                         $("#Poster").html("<img src=" + data.Poster + " alt='no img'>");
-                        $("#Plot").html("<p>" + data.Plot + " </p>");
-                        $("#Actors").html("<p>" + data.Actors + "</p>");
-                        $("#Awards").html("<p>" + data.Awards + "</p>");
-                        $("#Director").html("<p>" + data.Director + "</p>");
-                        $("#Genre").html("<p>" + data.Genre + "</p>");
-                        $("#Released").html("<p>" + data.Released + "</p>");
-                        $("#Title").html("<p>" + data.Title + "</p>");
-                        $("#Year").html("<p>" + data.Year + "</p>");
-                        $("#imdbRating").html("<p>" + data.imdbRating + "</p>");
-                        $("#imdbVotes").html("<p>" + data.imdbVotes + "</p>");
+                        $("#Plot").html("<label style='font-size: bold;'>Plot: </label>" + data.Plot);
+                        $("#Actors").html("<label>Actors: </label>" + data.Actors);
+                        $("#Awards").html("<label>Awards: </label>" + data.Awards);
+                        $("#Director").html("<label>Directors: </label>" + data.Director);
+                        $("#Genre").html("<label>Genre: </label>" + data.Genre);
+                        $("#Released").html("<label>Released: </label>" + data.Released);
+                        $("#Title").html(data.Title);
+                        $("#Year").html("<label>Year: </label>" + data.Year);
+                        $("#imdbRating").html("<label>IMDb Rating: </label>" + data.imdbRating);
+                        $("#imdbVotes").html("<label>IMDb votes: </label>" + data.imdbVotes);
                         $("#imdbID").html('<a href=http://www.imdb.com/title/' + data.imdbID + '>See on IMDb</a>');
-                        $("#comment").html("<input id=" + data.imdbID + " type=button value='Comment' class='comm'>" + data.imdbVotes + "</input>");
+                        $("#comment").html("<input id=" + data.imdbID + " type='button' value='Comment' class='comm'></input>");
                     }
                 }
             }
@@ -44,7 +44,7 @@ $(document).ready(function () {
 
     $("#comment").on('click', '.comm', function () {
         var movieId = $(this).attr('id');
-       // alert(movieId);
+        // alert(movieId);
         $("#allcomments").slideDown(500);
         //alert("before alert");
         $.ajax({
