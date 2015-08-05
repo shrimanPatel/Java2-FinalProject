@@ -18,19 +18,18 @@ $(document).ready(function () {
                 else
                 {
                     $("#loading").hide();
-//                
                     if ($("#search").val() === "") {
                         $("#movieData").hide();
                     } else {
                         $("#movieData").show();
-                        $("#Poster").html("<img src=" + data.Poster + " alt='no img'>");
-                        $("#Plot").html("<label style='font-size: bold;'>Plot: </label>" + data.Plot);
+                        $("#Title").html(data.Title);
+                        $("#Poster").html("<img src=" + data.Poster + " alt='No Poster Found!'>");
+                        $("#Plot").html("<label><b>Plot: </b></label><table> <th style='color:red;'>" + data.Plot +"</th></table>");
                         $("#Actors").html("<label>Actors: </label>" + data.Actors);
                         $("#Awards").html("<label>Awards: </label>" + data.Awards);
                         $("#Director").html("<label>Directors: </label>" + data.Director);
                         $("#Genre").html("<label>Genre: </label>" + data.Genre);
                         $("#Released").html("<label>Released: </label>" + data.Released);
-                        $("#Title").html(data.Title);
                         $("#Year").html("<label>Year: </label>" + data.Year);
                         $("#imdbRating").html("<label>IMDb Rating: </label>" + data.imdbRating);
                         $("#imdbVotes").html("<label>IMDb votes: </label>" + data.imdbVotes);
