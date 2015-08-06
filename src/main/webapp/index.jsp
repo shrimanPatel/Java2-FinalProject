@@ -57,7 +57,7 @@
             <div id="imdbVotes" style=""></div>
             <div id="imdbID"></div><br>
             <div id="error"></div>
-            <div id="comment"></div>
+            <!--<div id="comment"></div>-->
         </div>
         <div id="allcomments"></div>
     </body>
