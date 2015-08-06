@@ -11,7 +11,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" type="text/css" href="css/style.css" />
         <!--<link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.5/superhero/bootstrap.min.css" rel="stylesheet">-->
-         <!--<link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.5/paper/bootstrap.min.css" rel="stylesheet">--> 
+         <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.5/paper/bootstrap.min.css" rel="stylesheet"> 
 
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
         <script src="js/movie.js"></script>
@@ -57,7 +57,8 @@
             <div id="imdbVotes" style=""></div>
             <div id="imdbID"></div><br>
             <div id="error"></div>
-            <div id="comment"></div>
+            
+            <!--<div id="comment"></div>-->
         </div>
         <div id="allcomments"></div>
     </body>
