@@ -46,19 +46,19 @@
             <div id="loading"><img src="images/loading.gif" /></div>
             <div id="Title" style="color: #0084b4; font-size: 1.5em; font-weight: bold; padding-top: 10px; clear:left;"></div>
             <div id="Poster" style="float: left; margin-right: 2em; clear: both;"></div>
-            <div id="Plot" style="display: inline;"></div>
-            <div id="Actors" style="display: inline;"></div>
+            <div id="Plot" style="display: inline;"></div><br>
+            <div id="Actors" style="display: inline;"></div><br>
             <div id="Awards" style="display: inline;"></div>
-            <div id="Director"></div><br><br>
+            <div id="Director"></div>
             <div id="Genre" style="display: inline;"></div>
             <div id="Released"></div>
-            <div id="Year"></div><br><br>
+            <div id="Year"></div>
             <div id="imdbRating" style=""></div>
             <div id="imdbVotes" style=""></div>
             <div id="imdbID"></div><br>
             <div id="error"></div>
             
-            <!--<div id="comment"></div>-->
+            <div id="comment"></div>
         </div>
         <div id="allcomments"></div>
     </body>

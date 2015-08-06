@@ -24,7 +24,7 @@ $(document).ready(function () {
                         $("#movieData").show();
                         $("#Title").html(data.Title);
                         $("#Poster").html("<img src=" + data.Poster + " alt='No Poster Found!'>");
-                        $("#Plot").html("<label><b>Plot: </b></label><table> <th style='color:red;'>" + data.Plot +"</th></table>");
+                        $("#Plot").html("<label>Plot:</label>" + data.Plot);
                         $("#Actors").html("<label>Actors: </label>" + data.Actors);
                         $("#Awards").html("<label>Awards: </label>" + data.Awards);
                         $("#Director").html("<label>Directors: </label>" + data.Director);
